@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:29:55 by msokolov          #+#    #+#             */
-/*   Updated: 2025/03/16 14:46:41 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/04/07 17:48:04 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	pec_check(t_map	*map_data)
 		j = 0;
 		while (map_data->map[i][j])
 		{
-			if (map_data->map[i][j] == 'PLAYER')
+			if (map_data->map[i][j] == PLAYER)
 				map_data->player++;
-			if (map_data->map[i][j] == 'COLLECT')
+			if (map_data->map[i][j] == COLLECT)
 				map_data->collect++;
-			if (map_data->map[i][j] == 'EXIT')
+			if (map_data->map[i][j] == EXIT)
 				map_data->exit++;
 			j++;
 		}

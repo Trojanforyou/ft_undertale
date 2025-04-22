@@ -1,36 +1,52 @@
 NAME = so_long
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-LDFLAGS = -Llibft -lft
+SRC_DIR = src
 
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)
-LIBFT_INC = $(LIBFT_DIR)
+OBJS_DIR = objs
 
-SRCS =
+LIBMLX = MLX42
 
-OBJS = $(SRCS:.c=.o)
+HEADERS := -I ./include -I $(LIBMLX)/include -I libft
 
-all: $(NAME)
+CC = cc
+CFLAGS = -Wall -Werror -Wextra -g
 
-$(NAME): $(OBJS): $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LDFLAGS)
+LIBS := $(LIBMLX)/build/libmlx42.a libft/libft.a  -lglfw -pthread -lm
 
-$(LIBFT)
-	make -C $(LIBFT_DIR)
+SRCS = main.c find_player.c flood_fill.c map_shape.c map_validation.c pec_check.c \
+	   texture_load.c wall_check.c find_last.c window_create.c
 
-$(OBJS): %.o: %.c
-	$(CC) $(CFLAGS) -I$(LIBFT_INC) -c $< -o $@
+OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
+
+all: libmlx $(NAME)
+
+libmlx: MLX42/.git
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+
+MLX42/.git:
+	git submodule update --init MLX42
+
+libft/libft.a:
+	@make -C libft
+
+$(OBJS_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJS_DIR)
+	$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+
+$(NAME): $(OBJS) libft/libft.a $(LIBMLX)/build/libmlx42.a
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
 
 clean:
-	rm -f $(OBJS)
-	make clean -C $(LIBFT_DIR)
+	rm -rf $(OBJS_DIR)
+	rm -rf $(LIBMLX)/build
+	make -C libft clean
 
 fclean: clean
-	rm -f $(NAME)
-	make fclean -C $(LIBFT_DIR)
+	rm -rf $(NAME)
+	make -C libft fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all re fclean clean libmlx libft/libft.a

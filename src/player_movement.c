@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_shape.c                                        :+:      :+:    :+:   */
+/*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 15:32:35 by msokolov          #+#    #+#             */
-/*   Updated: 2025/04/16 14:08:05 by msokolov         ###   ########.fr       */
+/*   Created: 2025/04/11 16:45:28 by msokolov          #+#    #+#             */
+/*   Updated: 2025/04/11 17:28:51 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-char	map_shape(t_map *map_data)
+void    player_movement(t_map *data, char pos, int dir)
 {
-	int i;
-
-	i = 0;
-	if (!map_data->map)
-		return (0);
-	map_data->width = ft_strlen(map_data->map[0]);
-	while (map_data->map[i])
-	{
-		if (ft_strlen(map_data->map[i]) != (size_t) map_data->width)
-			return (ft_printf("Invalid Map Shape'\n"), 0);
-		i++;
-	}
-	return (1);
-}
-
-int valid_map(t_map *map_data)
-{
-	if (wall_check(map_data))
-		return (1);
-	if (map_shape(map_data))
-		return (1);
-	return (0);
+    if (pos == 'y' && dir == UP)
+    
 }

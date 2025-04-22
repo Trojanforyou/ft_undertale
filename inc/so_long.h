@@ -2,11 +2,12 @@
 # define SO_LONG_H
 
 #include "libft.h"
-#include "MLX42/MLX42.h"
-# define T_S 37
-# define C_S 20
-# define E_S 37
-# define C_OFF 8
+#include "../MLX42/include/MLX42/MLX42.h"
+# define T_S 37 	// title_size
+# define C_S 20 	// coin_size
+# define E_S 37		// exit_size
+# define C_OFF 8	// coin_offset
+
 typedef enum e_map_elements
 {
 	WALL = '1',
@@ -16,18 +17,76 @@ typedef enum e_map_elements
 	EXIT = 'E',
 }	t_map_elemets;
 
+// typedef enum e_movement
+// {
+// 	UP = '',
+// 	DOWN = '',
+// 	RIGHT = '',
+// 	LEFT = '',
+// }	t_movement;
+
+typedef struct s_text
+{
+	mlx_texture_t	*exit;
+	mlx_texture_t	*floor;
+	mlx_texture_t	*player;
+	mlx_texture_t	*wall;
+	mlx_texture_t	*collect;
+	mlx_texture_t	*up;
+	mlx_texture_t	*right;
+	mlx_texture_t	*left;
+}	t_text;
+
+typedef struct s_image
+{
+	mlx_image_t 	*exit;
+	mlx_image_t		*floor;
+	mlx_image_t 	*wall;
+	mlx_image_t		*player;
+	mlx_image_t		*collect;
+	mlx_image_t		*up;
+	mlx_image_t		*right;
+	mlx_image_t		*left;
+}	t_images;
+
 typedef struct s_map
 {
-	char	**map;
-	char	**map_copy;
-	int		collect;
-	int		exit;
-	int		player;
-	int		player_x;
-	int		player_y;
-	int		width;
-	int		height;
+	struct s_image	*images;
+	struct s_text	*textures;
+	char				**map;
+	char				**map_copy;
+	int					collect;
+	int					exit;
+	int					player;
+	int					player_x;
+	int					player_y;
+	int					width;
+	int					hight;
+	int					colle_count;
+	mlx_t				*mlx;
 }	t_map;
 
+char	map_shape(t_map *map_data);
+char	valid_file(char *name);
+char	*map_str_reader(int fd);
+char	**map_reader(char *script);
+char	wall_check(t_map *map_data);
+
+int    	player_pos(t_map *map_data);
+int		flood_check	(t_map *map_data);
+int		flood_path(t_map *map_data);
+int		pec_last_check(t_map *map_data);
+int		pec_check(t_map	*map_data);
+int		find_last(char **map);
+int 	valid_map(t_map *map_data);
+
+void   	flood_fill(t_map *map_data, int y, int x);
+void	free_map(char **map);
+void    texture_load(t_text *texture);
+void    image_load(t_map *map_data, t_text *text, t_images *image);
+void	draw_map(t_map *map_data, t_images *images);
+void    player_textures(t_text	*texture);
+void	player_images(t_map *map_data, t_text *text, t_images *image);
+void	draw_titles(t_map *map_data, t_images *images);
 
 #endif
