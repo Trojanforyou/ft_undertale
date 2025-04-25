@@ -54,8 +54,8 @@ void    player_textures(t_text	*texture)
 	texture->right = mlx_load_png(("./textures/right.png"));
 	if (!texture->up || !texture->left || !texture->right || !texture->player)
 	{
-		return ;
 		ft_printf("An error occured while loading player txt\n");
+		return ;
 	}
 }
 

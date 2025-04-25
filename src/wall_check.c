@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:44:59 by msokolov          #+#    #+#             */
-/*   Updated: 2025/04/22 18:08:52 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:05:09 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,13 @@ char	wall_check(t_map *map_data)
 		j++;
 	}
 	return (1);
+}
+
+int	title_and_wall(t_map *map_data)
+{
+	if (title_check(map_data))
+		return (1);
+	if (wall_check(map_data))
+		return (1);
+	return (0);
 }

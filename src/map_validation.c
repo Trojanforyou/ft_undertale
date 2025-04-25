@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:21:12 by msokolov          #+#    #+#             */
-/*   Updated: 2025/04/14 21:42:11 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/04/23 00:29:05 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	valid_file(char *name)
 
 	len = ft_strlen(name);
 	last_entry = ft_strrchr(name, '.');
-	if(!name)
+	if (!last_entry)
 		return(ft_printf("Invalid File name\n"), 0);
 	if (len < 4 || (ft_strncmp(&name[len - 4], ".ber", 4) != 0 && ft_strlen(last_entry) != 1))
 		return (ft_printf("Invalid File Type\n"), 0);

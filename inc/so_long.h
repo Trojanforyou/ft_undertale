@@ -64,6 +64,7 @@ typedef struct s_map
 	int					hight;
 	int					colle_count;
 	mlx_t				*mlx;
+	t_images			*image;
 }	t_map;
 
 char	map_shape(t_map *map_data);
@@ -79,14 +80,20 @@ int		pec_last_check(t_map *map_data);
 int		pec_check(t_map	*map_data);
 int		find_last(char **map);
 int 	valid_map(t_map *map_data);
+int		title_check(t_map *map_data);
+int		title_and_wall(t_map *map_data);
 
 void   	flood_fill(t_map *map_data, int y, int x);
 void	free_map(char **map);
 void    texture_load(t_text *texture);
 void    image_load(t_map *map_data, t_text *text, t_images *image);
 void	draw_map(t_map *map_data, t_images *images);
-void    player_textures(t_text	*texture);
+void    player_textures(t_text *texture);
 void	player_images(t_map *map_data, t_text *text, t_images *image);
 void	draw_titles(t_map *map_data, t_images *images);
-
+void    move_left(t_map *map_data);
+void    move_right(t_map *map_data);
+void    move_down(t_map *map_data);
+void    move_up(t_map *map_data);
+void	player_hooks(void *param);
 #endif
