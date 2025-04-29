@@ -2,5 +2,6 @@
     "files.associations": {
         "typeinfo": "c",
         "so_long.h": "c"
-    }
+    },
+    "cmake.sourceDirectory": "/home/sermykyta/codam/so_long/MLX42"
 }
