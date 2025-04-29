@@ -17,7 +17,7 @@ void   flood_fill(t_map *map_data, int y, int x)
 	if (!map_data || !map_data->map_copy)
 		return ;
 	// printf("x=%d\n y=%d\n", x, y);
-	if (x < 0 || y < 0 || x >= map_data->width || y >= map_data->hight )
+	if (x < 0 || y < 0 || x >= map_data->width || y >= map_data->hight)
 		return ;
 	if (map_data->map_copy[y][x] == '1' || map_data->map_copy[y][x] == 'X')
 		return ;
@@ -43,10 +43,10 @@ int	flood_check	(t_map *map_data)
 		x = 0;
 		while (map_data->map_copy[y][x])
 		{
-			if(map_data->map_copy[y][x] == EXIT && map_data->map_copy[y][x] == COLLECT && map_data->map_copy[y][x] == 'X')
-				return(0);
-			// if (map_data->map_copy[y][x] != WALL && map_data->map_copy[y][x] != FLOOR && map_data->map_copy[y][x] != 'X')
-			// 	return (0);
+			// if (map_data->map_copy[y][x] == EXIT || map_data->map_copy[y][x] == COLLECT || map_data->map_copy[y][x] == 'X')
+			// 	return(0);
+			if (map_data->map_copy[y][x] != WALL && map_data->map_copy[y][x] != FLOOR && map_data->map_copy[y][x] != 'X')
+				return (0);
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:44:59 by msokolov          #+#    #+#             */
-/*   Updated: 2025/04/23 18:05:09 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/04/29 01:15:07 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ char	wall_check(t_map *map_data)
 	
 	map_data->hight = find_last(map_data->map);
 	map_data->width = ft_strlen(map_data->map[0]);
-	printf("w = %d\n", map_data->width);
-	printf("H = %d\n", map_data->hight);
 	while (i < map_data->hight)
 	{
-		if (map_data->map[i][0] != '1' || map_data->map[i][map_data->width - 1] != '1')
+		if (map_data->map[i][0] != WALL || map_data->map[i][map_data->width - 1] != WALL)
 		{
 			return(ft_printf("Invalid Map Structure\n"), 0);
 		}
@@ -34,7 +32,7 @@ char	wall_check(t_map *map_data)
 	}
 	while (j < map_data->width)
 	{
-		if (map_data->map[0][j] != '1' || map_data->map[map_data->hight - 1][j] != '1')
+		if (map_data->map[0][j] != WALL || map_data->map[map_data->hight - 1][j] != WALL)
 		{
 			return(ft_printf("Invalid Map Structure\n"), 0);	
 		}

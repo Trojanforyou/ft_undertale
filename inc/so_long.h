@@ -17,14 +17,6 @@ typedef enum e_map_elements
 	EXIT = 'E',
 }	t_map_elemets;
 
-// typedef enum e_movement
-// {
-// 	UP = '',
-// 	DOWN = '',
-// 	RIGHT = '',
-// 	LEFT = '',
-// }	t_movement;
-
 typedef struct s_text
 {
 	mlx_texture_t	*exit;
@@ -64,7 +56,6 @@ typedef struct s_map
 	int					hight;
 	int					colle_count;
 	mlx_t				*mlx;
-	t_images			*image;
 }	t_map;
 
 char	map_shape(t_map *map_data);
@@ -82,6 +73,7 @@ int		find_last(char **map);
 int 	valid_map(t_map *map_data);
 int		title_check(t_map *map_data);
 int		title_and_wall(t_map *map_data);
+int		coin_instance(t_map	*map_data, int x, int y);
 
 void   	flood_fill(t_map *map_data, int y, int x);
 void	free_map(char **map);
@@ -95,5 +87,7 @@ void    move_left(t_map *map_data);
 void    move_right(t_map *map_data);
 void    move_down(t_map *map_data);
 void    move_up(t_map *map_data);
-void	player_hooks(void *param);
+void	player_hooks(mlx_key_data_t keydata, void *param);
+void    if_exit(t_map  *map_data);
+void	collected(t_map	*map_data);
 #endif

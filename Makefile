@@ -15,7 +15,7 @@ LIBS := $(LIBMLX)/build/libmlx42.a libft/libft.a  -lglfw -pthread -lm
 
 SRCS = main.c find_player.c flood_fill.c map_shape.c map_validation.c pec_check.c \
 	   texture_load.c wall_check.c find_last.c window_create.c title_check.c \
-	   player_movement.c player_hook.c
+	   player_movement.c player_hook.c collected.c exit.c 
 
 OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
 

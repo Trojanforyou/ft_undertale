@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:32:35 by msokolov          #+#    #+#             */
-/*   Updated: 2025/04/23 18:18:03 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/04/29 01:36:44 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ char	map_shape(t_map *map_data)
 
 int valid_map(t_map *map_data)
 {
-	if (!title_check(map_data))
+	if (!pec_check(map_data))
 		return (0);
 	if (!wall_check(map_data))
 		return (0);
-	if (pec_check(map_data))
-		return (1);
+	if (!title_check(map_data))
+		return (0);
 	if (map_shape(map_data))
 		return (1);
 	return (0);
