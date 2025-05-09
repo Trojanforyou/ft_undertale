@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:44:59 by msokolov          #+#    #+#             */
-/*   Updated: 2025/04/29 01:15:07 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:38:52 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,21 @@ char	wall_check(t_map *map_data)
 	int	i;
 	int	j;
 
-	i = 0;
-	j = 0;
-	
+	i = -1;
+	j = -1;
 	map_data->hight = find_last(map_data->map);
 	map_data->width = ft_strlen(map_data->map[0]);
-	while (i < map_data->hight)
+	while (++i < map_data->hight)
 	{
-		if (map_data->map[i][0] != WALL || map_data->map[i][map_data->width - 1] != WALL)
-		{
-			return(ft_printf("Invalid Map Structure\n"), 0);
-		}
-		i++;
+		if (map_data->map[i][0] != WALL
+			|| map_data->map[i][map_data->width - 1] != WALL)
+				return (ft_printf("Invalid Map Structure\n"), 0);
 	}
-	while (j < map_data->width)
+	while (++j < map_data->width)
 	{
-		if (map_data->map[0][j] != WALL || map_data->map[map_data->hight - 1][j] != WALL)
-		{
-			return(ft_printf("Invalid Map Structure\n"), 0);	
-		}
-		j++;
+		if (map_data->map[0][j] != WALL
+			|| map_data->map[map_data->hight - 1][j] != WALL)
+			return (ft_printf ("Invalid Map Structure\n"), 0);
 	}
 	return (1);
-}
-
-int	title_and_wall(t_map *map_data)
-{
-	if (title_check(map_data))
-		return (1);
-	if (wall_check(map_data))
-		return (1);
-	return (0);
 }

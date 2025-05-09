@@ -64,7 +64,7 @@ char	*map_str_reader(int fd);
 char	**map_reader(char *script);
 char	wall_check(t_map *map_data);
 
-int    	player_pos(t_map *map_data);
+int		player_pos(t_map *map_data);
 int		flood_check	(t_map *map_data);
 int		flood_path(t_map *map_data);
 int		pec_last_check(t_map *map_data);
@@ -75,19 +75,19 @@ int		title_check(t_map *map_data);
 int		title_and_wall(t_map *map_data);
 int		coin_instance(t_map	*map_data, int x, int y);
 
-void   	flood_fill(t_map *map_data, int y, int x);
+void	flood_fill(t_map *map_data, int y, int x);
 void	free_map(char **map);
-void    texture_load(t_text *texture);
-void    image_load(t_map *map_data, t_text *text, t_images *image);
+void	texture_load(t_text *texture);
+void	image_load(t_map *map_data, t_text *text, t_images *image);
 void	draw_map(t_map *map_data, t_images *images);
-void    player_textures(t_text *texture);
+void	player_textures(t_text *texture);
 void	player_images(t_map *map_data, t_text *text, t_images *image);
 void	draw_titles(t_map *map_data, t_images *images);
-void    move_left(t_map *map_data);
-void    move_right(t_map *map_data);
-void    move_down(t_map *map_data);
-void    move_up(t_map *map_data);
+void	move_left(t_map *map_data);
+void	move_right(t_map *map_data);
+void	move_down(t_map *map_data);
+void	move_up(t_map *map_data);
 void	player_hooks(mlx_key_data_t keydata, void *param);
-void    if_exit(t_map  *map_data);
+void	if_exit(t_map  *map_data);
 void	collected(t_map	*map_data);
 #endif

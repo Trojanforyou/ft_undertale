@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 00:10:52 by msokolov          #+#    #+#             */
-/*   Updated: 2025/04/29 15:17:40 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:46:04 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 int	coin_instance(t_map *map_data, int x, int y)
 {
-	size_t i = 0;
-	
+	size_t	i;
+
+	i = 0;
 	while (i < map_data->images->collect->count)
 	{
-		if (map_data->images->collect->instances[i].x / T_S == x && 
-		    map_data->images->collect->instances[i].y / T_S == y)
+		if (map_data->images->collect->instances[i].x / T_S == x
+			&& map_data->images->collect->instances[i].y / T_S == y)
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-void collected(t_map *map_data)
+void	collected(t_map *map_data)
 {
-	int i;
-	int x;
-	int y;
+	int	i;
+	int	x;
+	int	y;
 
 	x = map_data->player_x / T_S;
 	y = map_data->player_y / T_S;
-	
 	if (map_data->map[y][x] == COLLECT)
 	{
 		map_data->map[y][x] = '0';

@@ -9,13 +9,13 @@ LIBMLX = MLX42
 HEADERS := -I ./include -I $(LIBMLX)/include -I libft
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Wextra -Werror -g3
 
 LIBS := $(LIBMLX)/build/libmlx42.a libft/libft.a  -lglfw -pthread -lm
 
 SRCS = main.c find_player.c flood_fill.c map_shape.c map_validation.c pec_check.c \
 	   texture_load.c wall_check.c find_last.c window_create.c title_check.c \
-	   player_movement.c player_hook.c collected.c exit.c 
+	   player_movement.c player_hook.c collected.c exit.c
 
 OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
