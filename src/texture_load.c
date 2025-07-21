@@ -30,7 +30,7 @@ void	image_load(t_map *map_data, t_text *texture, t_images *image)
 {
 	map_data->images = image;
 	map_data->textures = texture;
-	image->exit = 0;
+	image->exit = mlx_texture_to_image(map_data->mlx, texture->exit);
 	image->floor = mlx_texture_to_image(map_data->mlx, texture->floor);
 	image->collect = mlx_texture_to_image(map_data->mlx, texture->collect);
 	image->wall = mlx_texture_to_image(map_data->mlx, texture->wall);

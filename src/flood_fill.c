@@ -59,10 +59,7 @@ int	flood_path(t_map *map_data)
 	player_pos(map_data);
 	flood_fill(map_data, map_data->player_y / T_S, map_data->player_x / T_S);
 	if (!flood_check(map_data))
-	{
-		free_map(map_data->map_copy);
 		return (ft_printf("Map is not valid\n"), 0);
-	}
 	free_map(map_data->map_copy);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:09:17 by msokolov          #+#    #+#             */
-/*   Updated: 2025/05/07 18:43:30 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/05/10 19:36:07 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	draw_map(t_map *map_data, t_images *images)
 	y = -1;
 	if (!images->collect || !images->exit || !images->floor || !images->player
 		|| !images->wall)
-		{
-			ft_printf("An Error accured while drawing map\n");
-			exit(1);
-		}
+	{
+		ft_printf("An Error accured while drawing map\n");
+		exit(1);
+	}
 	while (map_data->map[++y])
 	{
 		x = -1;
@@ -49,7 +49,7 @@ void	draw_titles(t_map *map_data, t_images *images)
 	y = -1;
 	if (map_data->mlx == NULL || images->player == NULL
 		|| images->exit == NULL || images->collect == NULL)
-			exit(1);
+		exit(1);
 	while (map_data->map[++y])
 	{
 		x = -1;
@@ -62,7 +62,8 @@ void	draw_titles(t_map *map_data, t_images *images)
 				mlx_image_to_window(map_data->mlx,
 					images->exit, x * T_S, y * T_S);
 			else if (map_data->map[y][x] == PLAYER)
-				mlx_image_to_window(map_data->mlx,images->player, x * T_S, y * T_S);
+				mlx_image_to_window(map_data->mlx, images->player, x
+					* T_S, y * T_S);
 		}
 	}
 }

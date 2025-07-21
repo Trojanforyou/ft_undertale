@@ -6,7 +6,7 @@
 /*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:27:11 by msokolov          #+#    #+#             */
-/*   Updated: 2025/05/09 19:22:44 by msokolov         ###   ########.fr       */
+/*   Updated: 2025/05/12 16:42:47 by msokolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	init_game(t_map *map_data)
 	t_images	images;
 	t_text		text;
 
+	map_data->counter = 0;
 	map_data->hight = find_last(map_data->map);
 	map_data->width = ft_strlen(map_data->map[0]);
 	map_data->mlx = mlx_init(map_data->width * T_S,
@@ -49,7 +50,7 @@ int	main(int argc, char **argv)
 	{
 		free_map(map_data.map);
 		free_map(map_data.map_copy);
-		return (ft_printf("Lox\n"), 0);
+		return (ft_printf("Map is not exist\n"), 0);
 	}
 	if (!valid_map(&map_data) || !flood_path(&map_data))
 	{

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msokolov <msokolov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/10 19:36:58 by msokolov          #+#    #+#             */
+/*   Updated: 2025/05/10 19:38:17 by msokolov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "libft.h"
-#include "../MLX42/include/MLX42/MLX42.h"
+# include "libft.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 # define T_S 37 	// title_size
 # define C_S 20 	// coin_size
 # define E_S 37		// exit_size
@@ -31,9 +43,9 @@ typedef struct s_text
 
 typedef struct s_image
 {
-	mlx_image_t 	*exit;
+	mlx_image_t		*exit;
 	mlx_image_t		*floor;
-	mlx_image_t 	*wall;
+	mlx_image_t		*wall;
 	mlx_image_t		*player;
 	mlx_image_t		*collect;
 	mlx_image_t		*up;
@@ -43,8 +55,8 @@ typedef struct s_image
 
 typedef struct s_map
 {
-	struct s_image	*images;
-	struct s_text	*textures;
+	struct s_image		*images;
+	struct s_text		*textures;
 	char				**map;
 	char				**map_copy;
 	int					collect;
@@ -54,6 +66,7 @@ typedef struct s_map
 	int					player_y;
 	int					width;
 	int					hight;
+	int					counter;
 	int					colle_count;
 	mlx_t				*mlx;
 }	t_map;
@@ -65,12 +78,12 @@ char	**map_reader(char *script);
 char	wall_check(t_map *map_data);
 
 int		player_pos(t_map *map_data);
-int		flood_check	(t_map *map_data);
+int		flood_check(t_map *map_data);
 int		flood_path(t_map *map_data);
 int		pec_last_check(t_map *map_data);
 int		pec_check(t_map	*map_data);
 int		find_last(char **map);
-int 	valid_map(t_map *map_data);
+int		valid_map(t_map *map_data);
 int		title_check(t_map *map_data);
 int		title_and_wall(t_map *map_data);
 int		coin_instance(t_map	*map_data, int x, int y);
@@ -88,6 +101,6 @@ void	move_right(t_map *map_data);
 void	move_down(t_map *map_data);
 void	move_up(t_map *map_data);
 void	player_hooks(mlx_key_data_t keydata, void *param);
-void	if_exit(t_map  *map_data);
+void	if_exit(t_map *map_data);
 void	collected(t_map	*map_data);
 #endif
