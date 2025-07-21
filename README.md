@@ -4,6 +4,7 @@ A small 2D game inspired by **Undertale**, built as part of the 42 school's `so_
 Navigate a pixel-art maze, collect tokens and make it to the exit all wrapped in retro-style Undertale aesthetics.
 
 ---
+<img width="366" height="333" alt="Screenshot from 2025-07-21 15-21-51" src="https://github.com/user-attachments/assets/43186fd4-37c5-43dd-b75e-8c7388c08e90" />
 
 ## 🎮 Gameplay
 
