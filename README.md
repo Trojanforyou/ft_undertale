@@ -38,15 +38,17 @@ Your goal is simple:
 
 Clone the repo:
 
-```bash
+#!/bin/bash
+# Скрипт для клонирования, сборки и запуска ft_undertale
+
+# 1. Клонируем репозиторий
 git clone https://github.com/Trojanforyou/ft_undertale.git
-cd ft_undertale
 
-Built the project:
+# 2. Переходим в папку проекта
+cd ft_undertale || exit
 
-```bash
+# 3. Сборка проекта
 make
 
-Launch the game:
-```bash
+# 4. Запуск игры
 ./so_long maps/classic.ber
