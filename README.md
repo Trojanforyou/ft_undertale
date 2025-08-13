@@ -41,10 +41,16 @@ Clone the repo:
 ```bash
 git clone https://github.com/Trojanforyou/ft_undertale.git
 ```
+
+Open and make the game:
+```bash
 cd ft_undertale
+```
+```bash
 make
-
+```
 Run it:
-
+```bash
 ./so_long maps/classic.ber
+```
 
