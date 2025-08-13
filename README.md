@@ -40,10 +40,10 @@ Clone the repo:
 
 ```bash
 git clone https://github.com/Trojanforyou/ft_undertale.git
-
 cd ft_undertale
-
 make
+
+Run it:
 
 ./so_long maps/classic.ber
 
